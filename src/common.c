@@ -257,6 +257,8 @@ int stlink_load_device_params(stlink_t *sl) {
     } else {
       sl->flash_size = 256 * 1024;
     }
+  } else if (sl->chip_id  == STM32_CHIPID_L4Rx) {
+    sl->flash_size = 512 * 1024; // MOVE-II SSBv2 hard coded
   } else {
     sl->flash_size = flash_size * 1024;
   }
